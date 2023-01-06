@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(gripper_action_controller)
+project(gazebo_gripper_action_controller)
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
@@ -26,7 +26,7 @@ find_package(catkin
 
 catkin_package(
 INCLUDE_DIRS include
-LIBRARIES gripper_action_controller
+LIBRARIES gazebo_gripper_action_controller
 CATKIN_DEPENDS
   actionlib
   cmake_modules
@@ -41,17 +41,17 @@ include_directories(
   include ${catkin_INCLUDE_DIRS}
 )
 
-add_library(gripper_action_controller
+add_library(gazebo_gripper_action_controller
    src/gripper_action_controller.cpp
-   include/gripper_action_controller/gripper_action_controller.h
+   include/gazebo_gripper_action_controller/gripper_action_controller.h
 )
 
-target_link_libraries(gripper_action_controller
+target_link_libraries(gazebo_gripper_action_controller
  ${catkin_LIBRARIES}
 )
 
 # Install library
-install(TARGETS gripper_action_controller
+install(TARGETS gazebo_gripper_action_controller
    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}

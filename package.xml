@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>gripper_action_controller</name>
+  <name>gazebo_gripper_action_controller</name>
   <version>0.17.2</version>
-  <description>The gripper_action_controller package</description>
+  <description>modified gripper_action_controller package</description>
   <maintainer email="robot.moveit@gmail.com">Sachin Chitta</maintainer>
   <maintainer email="bence.magyar.robotics@gmail.com">Bence Magyar</maintainer>
   <maintainer email="enrique.fernandez.perdomo@gmail.com">Enrique Fernandez</maintainer>
