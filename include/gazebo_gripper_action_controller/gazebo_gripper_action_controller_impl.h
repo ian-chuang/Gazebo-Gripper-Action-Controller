@@ -30,7 +30,7 @@
 #pragma once
 
 
-namespace gripper_action_controller
+namespace gazebo_gripper_action_controller
 {
 namespace internal
 {
@@ -87,7 +87,7 @@ std::vector<urdf::JointConstSharedPtr> getUrdfJoints(const urdf::Model& urdf, co
 } // namespace
 
 template <class HardwareInterface>
-inline void GripperActionController<HardwareInterface>::
+inline void GazeboGripperActionController<HardwareInterface>::
 starting(const ros::Time& time)
 {
   command_struct_rt_.position_ = joint_.getPosition();
@@ -100,14 +100,14 @@ starting(const ros::Time& time)
 }
 
 template <class HardwareInterface>
-inline void GripperActionController<HardwareInterface>::
+inline void GazeboGripperActionController<HardwareInterface>::
 stopping(const ros::Time& time)
 {
   preemptActiveGoal();
 }
 
 template <class HardwareInterface>
-inline void GripperActionController<HardwareInterface>::
+inline void GazeboGripperActionController<HardwareInterface>::
 preemptActiveGoal()
 {
   RealtimeGoalHandlePtr current_active_goal(rt_active_goal_);
@@ -123,13 +123,13 @@ preemptActiveGoal()
 }
 
 template <class HardwareInterface>
-GripperActionController<HardwareInterface>::
-GripperActionController()
+GazeboGripperActionController<HardwareInterface>::
+GazeboGripperActionController()
 : verbose_(false) // Set to true during debugging
 {}
 
 template <class HardwareInterface>
-bool GripperActionController<HardwareInterface>::init(HardwareInterface* hw,
+bool GazeboGripperActionController<HardwareInterface>::init(HardwareInterface* hw,
 						      ros::NodeHandle&   root_nh,
 						      ros::NodeHandle&   controller_nh)
 {
@@ -212,15 +212,15 @@ bool GripperActionController<HardwareInterface>::init(HardwareInterface* hw,
 
   // ROS API: Action interface
   action_server_.reset(new ActionServer(controller_nh_, "gripper_cmd",
-					boost::bind(&GripperActionController::goalCB,   this, _1),
-					boost::bind(&GripperActionController::cancelCB, this, _1),
+					boost::bind(&GazeboGripperActionController::goalCB,   this, _1),
+					boost::bind(&GazeboGripperActionController::cancelCB, this, _1),
 					false));
   action_server_->start();
   return true;
 }
 
 template <class HardwareInterface>
-void GripperActionController<HardwareInterface>::
+void GazeboGripperActionController<HardwareInterface>::
 update(const ros::Time& time, const ros::Duration& period)
 {
   command_struct_rt_ = *(command_.readFromRT());
@@ -242,7 +242,7 @@ update(const ros::Time& time, const ros::Duration& period)
 }
 
 template <class HardwareInterface>
-void GripperActionController<HardwareInterface>::
+void GazeboGripperActionController<HardwareInterface>::
 goalCB(GoalHandle gh)
 {
   ROS_DEBUG_STREAM_NAMED(name_,"Recieved new action goal");
@@ -284,7 +284,7 @@ goalCB(GoalHandle gh)
 }
 
 template <class HardwareInterface>
-void GripperActionController<HardwareInterface>::
+void GazeboGripperActionController<HardwareInterface>::
 cancelCB(GoalHandle gh)
 {
   RealtimeGoalHandlePtr current_active_goal(rt_active_goal_);
@@ -305,7 +305,7 @@ cancelCB(GoalHandle gh)
 }
 
 template <class HardwareInterface>
-void GripperActionController<HardwareInterface>::
+void GazeboGripperActionController<HardwareInterface>::
 setHoldPosition(const ros::Time& time)
 {
   command_struct_.position_ = joint_.getPosition();
@@ -314,7 +314,7 @@ setHoldPosition(const ros::Time& time)
 }
 
 template <class HardwareInterface>
-void GripperActionController<HardwareInterface>::
+void GazeboGripperActionController<HardwareInterface>::
 checkForSuccess(const ros::Time& time, double error_position, double current_position, double current_velocity)
 {
   RealtimeGoalHandlePtr current_active_goal(rt_active_goal_);

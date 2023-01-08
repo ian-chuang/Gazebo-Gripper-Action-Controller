@@ -42,8 +42,8 @@ include_directories(
 )
 
 add_library(gazebo_gripper_action_controller
-   src/gripper_action_controller.cpp
-   include/gazebo_gripper_action_controller/gripper_action_controller.h
+   src/gazebo_gripper_action_controller.cpp
+   include/gazebo_gripper_action_controller/gazebo_gripper_action_controller.h
 )
 
 target_link_libraries(gazebo_gripper_action_controller

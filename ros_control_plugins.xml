@@ -1,14 +1,14 @@
 <library path="lib/libgazebo_gripper_action_controller">
 
   <class name="position_controllers/GazeboGripperActionController"
-         type="position_controllers::GripperActionController"
+         type="position_controllers::GazeboGripperActionController"
          base_class_type="controller_interface::ControllerBase">
     <description>
     </description>
   </class>
 
   <class name="effort_controllers/GazeboGripperActionController"
-         type="effort_controllers::GripperActionController"
+         type="effort_controllers::GazeboGripperActionController"
          base_class_type="controller_interface::ControllerBase">
     <description>
     </description>

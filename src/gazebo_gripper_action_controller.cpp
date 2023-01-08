@@ -31,7 +31,7 @@
 #include <pluginlib/class_list_macros.hpp>
 
 // Project
-#include <gripper_action_controller/gripper_action_controller.h>
+#include <gazebo_gripper_action_controller/gazebo_gripper_action_controller.h>
 
 namespace position_controllers
 {
@@ -39,8 +39,8 @@ namespace position_controllers
    * \brief Gripper action controller that sends
    * commands to a \b position interface.
    */
-  typedef gripper_action_controller::GripperActionController<hardware_interface::PositionJointInterface>
-          GripperActionController;
+  typedef gazebo_gripper_action_controller::GazeboGripperActionController<hardware_interface::PositionJointInterface>
+          GazeboGripperActionController;
 }
 
 namespace effort_controllers
@@ -49,9 +49,9 @@ namespace effort_controllers
    * \brief Gripper action controller that sends
    * commands to a \b effort interface.
    */
-  typedef gripper_action_controller::GripperActionController<hardware_interface::EffortJointInterface>
-          GripperActionController;
+  typedef gazebo_gripper_action_controller::GazeboGripperActionController<hardware_interface::EffortJointInterface>
+          GazeboGripperActionController;
 }
 
-PLUGINLIB_EXPORT_CLASS(position_controllers::GripperActionController, controller_interface::ControllerBase)
-PLUGINLIB_EXPORT_CLASS(effort_controllers::GripperActionController,   controller_interface::ControllerBase)
+PLUGINLIB_EXPORT_CLASS(position_controllers::GazeboGripperActionController, controller_interface::ControllerBase)
+PLUGINLIB_EXPORT_CLASS(effort_controllers::GazeboGripperActionController,   controller_interface::ControllerBase)

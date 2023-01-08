@@ -56,9 +56,9 @@
 #include <realtime_tools/realtime_buffer.h>
 
 // Project
-#include <gripper_action_controller/hardware_interface_adapter.h>
+#include <gazebo_gripper_action_controller/hardware_interface_adapter.h>
 
-namespace gripper_action_controller
+namespace gazebo_gripper_action_controller
 {
 
 /**
@@ -68,7 +68,7 @@ namespace gripper_action_controller
  * \p hardware_interface::EffortJointInterface are supported out-of-the-box.
  */
 template <class HardwareInterface>
-class GripperActionController : public controller_interface::Controller<HardwareInterface>
+class GazeboGripperActionController : public controller_interface::Controller<HardwareInterface>
 {
 public:
 
@@ -81,7 +81,7 @@ public:
     double max_effort_; // Max allowed effort
   };
 
-  GripperActionController();
+  GazeboGripperActionController();
 
   /** \name Non Real-Time Safe Functions
    *\{*/
@@ -153,4 +153,4 @@ private:
 
 } // namespace
 
-#include <gripper_action_controller/gripper_action_controller_impl.h>
+#include <gazebo_gripper_action_controller/gazebo_gripper_action_controller_impl.h>
