@@ -2,6 +2,8 @@
 
 The `gazebo_gripper_action_controller` is a ROS control gripper action controller designed for Gazebo simulation environments. This controller has been derived from the original [ros_controllers](https://github.com/ros-controls/ros_controllers) repository with specific modifications to enhance its functionality.
 
+<img src="media/gazebo.gif" alt="App GIF">
+
 ## Features
 
 - The stalling detection mechanism has been improved. Instead of relying on stall velocity thresholds, this version uses a position threshold approach. This provides better reliability since velocity data can be noisier.
